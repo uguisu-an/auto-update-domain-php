@@ -2,7 +2,7 @@
 namespace Tests\Models;
 
 use Iimasamitsu\AutoUpdate\Domain\Models\Version;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 /**
  * VersionTest

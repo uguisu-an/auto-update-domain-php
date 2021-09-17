@@ -1,11 +1,11 @@
 {
-    "name": "iimasamitsu/auto-update-domain-php",
+    "name": "masamitsu/auto-update",
     "description": "Auto update",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Iimasamitsu\\AutoUpdate\\Domain\\": "src/",
+            "Masamitsu\\AutoUpdate\\": "src/",
             "Tests\\": "tests/"
         }
     },

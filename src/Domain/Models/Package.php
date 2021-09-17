@@ -1,5 +1,5 @@
 <?php
-namespace Iimasamitsu\AutoUpdate\Domain\Models;
+namespace Masamitsu\AutoUpdate\Domain\Models;
 
 /**
  * パッケージ
@@ -20,5 +20,15 @@ class Package
         $this->id = $id;
         $this->name = $name;
         $this->releases = $releases;
+    }
+
+    public function latestRelease(): ?Release
+    {
+        return $this->releases->latest();
+    }
+
+    public function currentRelease(Version $version): ?Release
+    {
+        return $this->releases->get($version);
     }
 }

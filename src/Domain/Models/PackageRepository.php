@@ -1,5 +1,5 @@
 <?php
-namespace Iimasamitsu\AutoUpdate\Domain\Models;
+namespace Masamitsu\AutoUpdate\Domain\Models;
 
 interface PackageRepository
 {

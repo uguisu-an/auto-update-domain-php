@@ -1,12 +1,9 @@
 <?php
-namespace Iimasamitsu\AutoUpdate\Domain\Models;
+namespace Masamitsu\AutoUpdate\Domain\Models;
 
 use Stringable;
 
-/**
- * パッケージの識別子
- */
-class PackageId implements Stringable
+class ReleaseId implements Stringable
 {
     protected $value;
 
