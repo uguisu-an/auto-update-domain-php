@@ -126,3 +126,6 @@ dist
 .pnp.*
 
 
+# PHPUnit
+
+.phpunit.result.cache

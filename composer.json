@@ -1,18 +1,21 @@
 {
-  "name": "iimasamitsu/auto-update-domain-php",
-  "description": "Auto update",
-  "type": "library",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "Iimasamitsu\\AutoUpdate\\Domain\\": "src/"
+    "name": "iimasamitsu/auto-update-domain-php",
+    "description": "Auto update",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Iimasamitsu\\AutoUpdate\\Domain\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ii masamitsu",
+            "email": "arcana278@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
-  },
-  "authors": [
-    {
-      "name": "ii masamitsu",
-      "email": "arcana278@gmail.com"
-    }
-  ],
-  "require": {}
 }
