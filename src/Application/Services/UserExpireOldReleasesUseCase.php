@@ -1,18 +1,20 @@
 <?php
 
+use Masamitsu\AutoUpdate\Domain\Models\Version;
+use Masamitsu\AutoUpdate\Domain\Models\PackageId;
 use Masamitsu\AutoUpdate\Domain\Models\PackageVersion;
 use Masamitsu\AutoUpdate\Domain\Models\ReleaseRepository;
 use Masamitsu\AutoUpdate\Query\Services\PackageQueryService;
 
 class UserExpireOldReleasesUseCase
 {
-    protected $queryPackages;
+    protected $packages;
 
     protected $releases;
 
-    public function __construct(PackageQueryService $queryPackages, ReleaseRepository $releases)
+    public function __construct(PackageQueryService $packages, ReleaseRepository $releases)
     {
-        $this->queryPackages = $queryPackages;
+        $this->packages = $packages;
         $this->releases = $releases;
     }
 
@@ -23,7 +25,9 @@ class UserExpireOldReleasesUseCase
     {
         $package = $this->packages->getPackage($packageId);
         foreach ($package->olderReleasesThan($version) as $release) {
-            $this->releases->destroy(new PackageVersion($release->packageId, $release->version));
+            $this->releases->destroy(
+                new PackageVersion(new PackageId($release->packageId), new Version($release->version))
+            );
         }
     }
 }
