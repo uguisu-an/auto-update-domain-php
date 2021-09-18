@@ -13,6 +13,11 @@ class Package
         $this->name = $name;
     }
 
+    public function id()
+    {
+        return $this->name;
+    }
+
     public function toArray()
     {
         return [

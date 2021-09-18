@@ -19,6 +19,7 @@ class UserCreatePackageUseCase
 
     public function createPackage(string $name): void
     {
+        // TODO すでに存在する場合は重複エラー
         $package = new Package(new PackageId($name));
         $this->packages->save($package);
     }
