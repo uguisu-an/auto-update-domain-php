@@ -13,6 +13,16 @@ class PackageVersion
         $this->version = $version;
     }
 
+    public function packageId()
+    {
+        return $this->packageId;
+    }
+
+    public function version()
+    {
+        return $this->version;
+    }
+
     public function equals(PackageVersion $packageVersion)
     {
         return $this->packageId->equals($packageVersion->packageId) && $this->version->equals($packageVersion->version);

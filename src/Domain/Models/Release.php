@@ -27,25 +27,20 @@ class Release
         DateTimeInterface $expireDate = null
     ) {
         $this->version = $version;
-        $this->url = $url;
-        $this->note = $note;
+        $this->setUrl($url);
+        $this->setNote($note);
         $this->publishDate = $publishDate;
         $this->expireDate = $expireDate;
     }
 
-    public function isPublishedAt(DateTimeInterface $date): bool
+    public function setUrl(string $url): void
     {
-        return $date >= $this->publishDate;
+        $this->url = $url;
     }
 
-    public function isExpiredAt(DateTimeInterface $date): bool
+    public function setNote(string $note): void
     {
-        return $date >= $this->expireDate;
-    }
-
-    public function isAvailableAt(DateTimeInterface $date): bool
-    {
-        return $this->isPublishedAt($date) && !$this->isExpiredAt($date);
+        $this->note = $note;
     }
 
     public function publish(DateTimeInterface $date): void
@@ -58,12 +53,15 @@ class Release
         $this->expireDate = $date;
     }
 
-    public function version()
+    public function toArray()
     {
-    }
-
-    public function isNewerThan(Version $version)
-    {
-        return $this->version->isNewerThan($version);
+        return [
+            'package_id' => (string) $this->version->packageId(),
+            'version' => (string) $this->version->version(),
+            'url' => $this->url,
+            'note' => $this->note,
+            'publish_date' => $this->publishDate,
+            'expire_date' => $this->expireDate,
+        ];
     }
 }

@@ -1,6 +1,8 @@
 <?php
 namespace Masamitsu\AutoUpdate\Query\Models;
 
+use DateTimeInterface;
+
 class Releases
 {
     protected $releases = [];
@@ -20,20 +22,20 @@ class Releases
         return $this->releases[$version];
     }
 
-    public function latest(): ?Release
+    public function latestAt(DateTimeInterface $date): ?Release
     {
-        if (empty($this->releases)) {
+        $releases = array_values($this->availableAt($date));
+        if (empty($releases)) {
             return null;
         }
-        return $this->descending()[0];
+        Release::sort($releases);
+        return $releases[0];
     }
 
-    private function descending()
+    private function availableAt(DateTimeInterface $date)
     {
-        $releases = array_values($this->releases);
-        usort($releases, function (Release $a, Release $b) {
-            return version_compare($b->version, $a->version);
+        return array_filter($this->releases, function (Release $release) use ($date) {
+            return $release->isAvailableAt($date);
         });
-        return $releases;
     }
 }

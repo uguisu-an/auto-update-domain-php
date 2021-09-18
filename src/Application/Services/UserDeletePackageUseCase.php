@@ -1,5 +1,5 @@
 <?php
-namespace Masamitsu\AutoUpdate\Application\Services\Packages;
+namespace Masamitsu\AutoUpdate\Application\Services;
 
 use Masamitsu\AutoUpdate\Domain\Models\PackageId;
 use Masamitsu\AutoUpdate\Domain\Models\PackageRepository;

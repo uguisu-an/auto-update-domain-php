@@ -63,4 +63,11 @@ class Release
             'release_date' => $this->publishDate,
         ];
     }
+
+    public static function sort(array &$releases): void
+    {
+        usort($releases, function (Release $a, Release $b) {
+            return version_compare($b->version, $a->version);
+        });
+    }
 }

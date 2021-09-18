@@ -1,6 +1,8 @@
 <?php
 namespace Masamitsu\AutoUpdate\Query\Models;
 
+use DateTimeInterface;
+
 class Package
 {
     public $name;
@@ -13,9 +15,9 @@ class Package
         $this->releases = $releases;
     }
 
-    public function latestVersion()
+    public function latestVersion(DateTimeInterface $date)
     {
-        return $this->releases->latest();
+        return $this->releases->latestAt($date);
     }
 
     public function currentVersion(string $version)

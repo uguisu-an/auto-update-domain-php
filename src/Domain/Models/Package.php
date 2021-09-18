@@ -6,10 +6,17 @@ namespace Masamitsu\AutoUpdate\Domain\Models;
  */
 class Package
 {
-    protected $id;
+    protected $name;
 
-    public function __construct(PackageId $id)
+    public function __construct(PackageId $name)
     {
-        $this->id = $id;
+        $this->name = $name;
+    }
+
+    public function toArray()
+    {
+        return [
+            'name' => (string) $this->name,
+        ];
     }
 }

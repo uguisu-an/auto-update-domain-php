@@ -1,5 +1,8 @@
 <?php
-namespace Masamitsu\AutoUpdate\Query\Models;
+namespace Masamitsu\AutoUpdate\Query\Services;
+
+use Masamitsu\AutoUpdate\Query\Models\Package;
+use Masamitsu\AutoUpdate\Query\Models\PackageGateway;
 
 /**
  * パッケージの更新を確認するサービス
@@ -36,7 +39,7 @@ class PackageQueryService
     public function checkForUpdate(string $packageId, string $currentVersion, \DateTimeInterface $date): array
     {
         $package = $this->getPackage($packageId);
-        $release = $package->latestVersion();
+        $release = $package->latestVersion($date);
         if (empty($release) || !$release->isNewerThan($currentVersion)) {
             return [];
         }
