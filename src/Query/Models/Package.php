@@ -4,20 +4,20 @@ class Package
 {
     public $id;
 
-    public $name;
+    protected $releases;
 
-    public $releases;
-
-    public function __construct($id, $name, $releases)
+    public function __construct(string $id, $releases)
     {
         $this->id = $id;
-        $this->name = $name;
         $this->releases = $releases;
     }
 
-    public function getLatestRelease(): ?Release
+    public function latestVersion()
     {
+        
     }
 
-    public function getRelease(string $version): ?Release;
+    public function version(string $version)
+    {
+    }
 }

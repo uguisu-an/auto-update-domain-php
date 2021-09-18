@@ -11,6 +11,5 @@ class ReleasesTest extends TestCase
     public function test_リリースを追加する()
     {
         $releases = new Releases();
-        $releases->add(new Release(new ReleaseId('1'), ))
     }
 }

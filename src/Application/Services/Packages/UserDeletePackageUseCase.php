@@ -1,8 +1,20 @@
 <?php
+namespace Masamitsu\AutoUpdate\Application\Services\Packages;
+
+use Masamitsu\AutoUpdate\Domain\Models\PackageId;
+use Masamitsu\AutoUpdate\Domain\Models\PackageRepository;
 
 class UserDeletePackageUseCase
 {
-    public function deletePackage(string $id)
+    protected $packages;
+
+    public function __construct(PackageRepository $packages)
     {
+        $this->packages = $packages;
+    }
+
+    public function deletePackage(string $packageId): void
+    {
+        $this->packages->destroy(new PackageId($packageId));
     }
 }

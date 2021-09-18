@@ -4,19 +4,19 @@ namespace Masamitsu\AutoUpdate\Domain\Models;
 use Stringable;
 
 /**
- * パッケージの識別子
+ * パッケージ名
  */
 class PackageId implements Stringable
 {
-    protected $value;
+    protected $name;
 
-    public function __construct(string $value)
+    public function __construct(string $name)
     {
-        $this->value = $value;
+        $this->name = $name;
     }
 
     public function __toString()
     {
-        return $this->value;
+        return $this->name;
     }
 }

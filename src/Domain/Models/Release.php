@@ -8,26 +8,26 @@ use DateTimeInterface;
  */
 class Release
 {
-    protected $id;
-
     protected $version;
 
     protected $url;
+
+    protected $note;
 
     protected $publishDate;
 
     protected $expireDate;
 
     public function __construct(
-        ReleaseId $id,
         Version $version,
         Url $url,
+        string $note = null,
         DateTimeInterface $publishDate = null,
         DateTimeInterface $expireDate = null
     ) {
-        $this->id = $id;
         $this->version = $version;
         $this->url = $url;
+        $this->note = $note;
         $this->publishDate = $publishDate;
         $this->expireDate = $expireDate;
     }
@@ -69,10 +69,10 @@ class Release
     public function toArray()
     {
         return [
-            "version" => $this->version,
-            "url" => $this->url,
-            "publish_date" => $this->publishDate,
-            "expire_date" => $this->expireDate,
+            'version' => $this->version,
+            'url' => $this->url,
+            'publish_date' => $this->publishDate,
+            'expire_date' => $this->expireDate,
         ];
     }
 }

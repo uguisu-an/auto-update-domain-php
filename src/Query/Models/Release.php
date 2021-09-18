@@ -1,28 +1,24 @@
 <?php
+namespace Masamitsu\AutoUpdate\Query\Models;
 
 class Release
 {
-    public $version;
+    protected $version;
 
-    public $url;
+    protected $url;
 
-    public $publishDate;
+    protected $note;
 
-    public $expireDate;
+    protected $publishDate;
 
-    public $packageId;
+    protected $expireDate;
 
-    public function __construct(
-        string $packageId,
-        string $version,
-        string $url,
-        DateTimeInterface $publishDate,
-        DateTimeInterface $expireDate
-    ) {
+    public function __construct($version, $url, $note, $publishDate, $expireDate)
+    {
         $this->version = $version;
         $this->url = $url;
+        $this->note = $note;
         $this->publishDate = $publishDate;
         $this->expireDate = $expireDate;
-        $this->packageId = $packageId;
     }
 }

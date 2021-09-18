@@ -15,16 +15,16 @@ class Version
 
     public function equals(Version $other): bool
     {
-        return version_compare($this->value, $other->value, "=");
+        return version_compare($this->value, $other->value, '=');
     }
 
     public function isNewerThan(Version $other): bool
     {
-        return version_compare($this->value, $other->value, ">");
+        return version_compare($this->value, $other->value, '>');
     }
 
     public function isOlderThan(Version $other): bool
     {
-        return version_compare($this->value, $other->value, "<");
+        return version_compare($this->value, $other->value, '<');
     }
 }

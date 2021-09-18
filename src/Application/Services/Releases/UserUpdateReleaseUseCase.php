@@ -2,7 +2,7 @@
 
 class UserUpdateReleaseUseCase
 {
-    public function updateRelease(string $packageId, string $version, ReleaseBuilder $releaseBuilder) {
-        
+    public function updateRelease(string $packageId, string $version, ReleaseBuilder $releaseBuilder)
+    {
     }
 }

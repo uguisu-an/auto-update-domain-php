@@ -26,14 +26,14 @@ class Releases
         if (empty($this->releases)) {
             return null;
         }
-        return $this->descendingReleases()[0];
+        return $this->descending()[0];
     }
 
-    private function descendingReleases()
+    private function descending()
     {
         $releases = array_values($this->releases);
         usort($releases, function (Release $a, Release $b) {
-            return $b->isNewerThan($a);
+            return $b->isNewerThan($a->version());
         });
         return $releases;
     }

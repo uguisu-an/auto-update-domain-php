@@ -1,19 +1,15 @@
 <?php
 namespace Masamitsu\AutoUpdate\Domain\Models;
 
-use Stringable;
-
-class ReleaseId implements Stringable
+class ReleaseId
 {
-    protected $value;
+    protected $packageId;
 
-    public function __construct(string $value)
-    {
-        $this->value = $value;
-    }
+    protected $version;
 
-    public function __toString()
+    public function __construct(PackageId $packageId, Version $version)
     {
-        return $this->value;
+        $this->packageId = $packageId;
+        $this->version = $version;
     }
 }
