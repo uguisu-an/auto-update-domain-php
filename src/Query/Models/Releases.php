@@ -1,5 +1,5 @@
 <?php
-namespace Masamitsu\AutoUpdate\Domain\Models;
+namespace Masamitsu\AutoUpdate\Query\Models;
 
 class Releases
 {
@@ -8,17 +8,16 @@ class Releases
     public function __construct(Release ...$releases)
     {
         foreach ($releases as $release) {
-            $this->add($release);
+            $this->releases[$release->version] = $release;
         }
     }
 
-    public function add(Release $release): void
+    public function get(string $version): ?Release
     {
-        $this->releases[$release->version()] = $release;
-    }
-
-    public function remove(ReleaseId $releaseId): void
-    {
+        if (!array_key_exists($version, $this->releases)) {
+            return null;
+        }
+        return $this->releases[$version];
     }
 
     public function latest(): ?Release
@@ -33,12 +32,8 @@ class Releases
     {
         $releases = array_values($this->releases);
         usort($releases, function (Release $a, Release $b) {
-            return $b->isNewerThan($a->version());
+            return version_compare($b->version, $a->version);
         });
         return $releases;
-    }
-
-    public function get(Version $currentVersion): ?Release
-    {
     }
 }

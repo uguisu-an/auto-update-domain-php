@@ -19,8 +19,9 @@ class Release
     protected $expireDate;
 
     public function __construct(
-        Version $version,
-        Url $url,
+        PackageVersion $version,
+        // TODO URL型にする
+        string $url,
         string $note = null,
         DateTimeInterface $publishDate = null,
         DateTimeInterface $expireDate = null
@@ -64,15 +65,5 @@ class Release
     public function isNewerThan(Version $version)
     {
         return $this->version->isNewerThan($version);
-    }
-
-    public function toArray()
-    {
-        return [
-            'version' => $this->version,
-            'url' => $this->url,
-            'publish_date' => $this->publishDate,
-            'expire_date' => $this->expireDate,
-        ];
     }
 }

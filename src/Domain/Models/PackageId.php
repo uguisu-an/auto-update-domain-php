@@ -15,6 +15,11 @@ class PackageId implements Stringable
         $this->name = $name;
     }
 
+    public function equals(PackageId $other): bool
+    {
+        return $this->name === $other->name;
+    }
+
     public function __toString()
     {
         return $this->name;

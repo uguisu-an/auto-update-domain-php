@@ -1,23 +1,25 @@
 <?php
+namespace Masamitsu\AutoUpdate\Query\Models;
 
 class Package
 {
-    public $id;
+    public $name;
 
     protected $releases;
 
-    public function __construct(string $id, $releases)
+    public function __construct(string $name, Releases $releases)
     {
-        $this->id = $id;
+        $this->name = $name;
         $this->releases = $releases;
     }
 
     public function latestVersion()
     {
-        
+        return $this->releases->latest();
     }
 
-    public function version(string $version)
+    public function currentVersion(string $version)
     {
+        return $this->releases->get($version);
     }
 }
