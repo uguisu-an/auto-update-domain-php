@@ -6,6 +6,9 @@ use Masamitsu\AutoUpdate\Domain\Models\PackageVersion;
 use Masamitsu\AutoUpdate\Domain\Models\ReleaseRepository;
 use Masamitsu\AutoUpdate\Domain\Models\Version;
 
+/**
+ * ユーザーはリリースを削除する
+ */
 class UserRemoveReleaseUseCase
 {
     protected $releases;

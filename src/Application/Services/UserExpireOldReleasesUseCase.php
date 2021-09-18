@@ -6,6 +6,9 @@ use Masamitsu\AutoUpdate\Domain\Models\PackageVersion;
 use Masamitsu\AutoUpdate\Domain\Models\ReleaseRepository;
 use Masamitsu\AutoUpdate\Query\Services\PackageQueryService;
 
+/**
+ * ユーザーは古いバージョンをまとめて削除する
+ */
 class UserExpireOldReleasesUseCase
 {
     // ApplicationからQueryに依存するのは微妙かな？

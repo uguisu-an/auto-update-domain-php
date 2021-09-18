@@ -5,6 +5,9 @@ use Masamitsu\AutoUpdate\Domain\Models\Package;
 use Masamitsu\AutoUpdate\Domain\Models\PackageId;
 use Masamitsu\AutoUpdate\Domain\Models\PackageRepository;
 
+/**
+ * ユーザーはパッケージを追加する
+ */
 class UserCreatePackageUseCase
 {
     protected $packages;

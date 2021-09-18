@@ -4,6 +4,9 @@ namespace Masamitsu\AutoUpdate\Application\Services;
 use Masamitsu\AutoUpdate\Domain\Models\PackageId;
 use Masamitsu\AutoUpdate\Domain\Models\PackageRepository;
 
+/**
+ * ユーザーはパッケージを削除する
+ */
 class UserDeletePackageUseCase
 {
     protected $packages;

@@ -7,6 +7,9 @@ use Masamitsu\AutoUpdate\Domain\Models\PackageId;
 use Masamitsu\AutoUpdate\Domain\Models\PackageVersion;
 use Masamitsu\AutoUpdate\Domain\Models\ReleaseRepository;
 
+/**
+ * ユーザーはリリースを更新する
+ */
 class UserUpdateReleaseUseCase
 {
     protected $releases;

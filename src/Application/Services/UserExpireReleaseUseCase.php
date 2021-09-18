@@ -8,6 +8,9 @@ use Masamitsu\AutoUpdate\Domain\Models\PackageId;
 use Masamitsu\AutoUpdate\Domain\Models\PackageVersion;
 use Masamitsu\AutoUpdate\Domain\Models\ReleaseRepository;
 
+/**
+ * ユーザーはリリースを廃止する
+ */
 class UserExpireReleaseUseCase
 {
     protected $releases;
