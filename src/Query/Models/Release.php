@@ -53,6 +53,11 @@ class Release
         return version_compare($this->version, $version, '>');
     }
 
+    public function isOlderThan(string $version)
+    {
+        return version_compare($this->version, $version, '<');
+    }
+
     public function toArray()
     {
         return [

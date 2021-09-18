@@ -55,4 +55,13 @@ class PackageQueryService
         $release = $package->currentVersion($currentVersion);
         return empty($release) || $release->isExpiredAt($date);
     }
+
+    /**
+     * 指定したバージョンよりも古いバージョンを全て取得する
+     */
+    public function olderThan(string $packageId, string $version)
+    {
+        $package = $this->getPackage($packageId);
+        return $package->olderReleasesThan($version);
+    }
 }

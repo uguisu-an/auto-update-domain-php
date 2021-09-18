@@ -24,4 +24,9 @@ class Package
     {
         return $this->releases->get($version);
     }
+
+    public function olderReleasesThan(string $version)
+    {
+        return $this->releases->olderThan($version);
+    }
 }
