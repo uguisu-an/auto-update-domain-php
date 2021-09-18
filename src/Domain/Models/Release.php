@@ -33,6 +33,11 @@ class Release
         $this->expireDate = $expireDate;
     }
 
+    public function id()
+    {
+        return $this->version;
+    }
+
     public function setUrl(string $url): void
     {
         $this->url = $url;
