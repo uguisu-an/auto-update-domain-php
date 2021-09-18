@@ -5,7 +5,7 @@ class Package
 {
     public $name;
 
-    protected $releases;
+    public $releases;
 
     public function __construct(string $name, Releases $releases)
     {

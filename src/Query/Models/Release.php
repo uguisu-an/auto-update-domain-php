@@ -52,4 +52,15 @@ class Release
     {
         return version_compare($this->version, $version, '>');
     }
+
+    public function toArray()
+    {
+        return [
+            'package_id' => $this->packageId,
+            'version' => $this->version,
+            'url' => $this->url,
+            'note' => $this->note,
+            'release_date' => $this->publishDate,
+        ];
+    }
 }
