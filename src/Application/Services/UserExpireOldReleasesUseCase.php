@@ -8,6 +8,8 @@ use Masamitsu\AutoUpdate\Query\Services\PackageQueryService;
 
 class UserExpireOldReleasesUseCase
 {
+    // ApplicationからQueryに依存するのは微妙かな？
+
     protected $packages;
 
     protected $releases;
