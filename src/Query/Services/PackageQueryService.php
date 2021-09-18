@@ -1,6 +1,7 @@
 <?php
 namespace Masamitsu\AutoUpdate\Query\Services;
 
+use DateTimeInterface;
 use Masamitsu\AutoUpdate\Query\Models\Package;
 use Masamitsu\AutoUpdate\Query\Models\PackageGateway;
 
@@ -13,7 +14,7 @@ class PackageQueryService
 
     public function __construct(PackageGateway $packages)
     {
-        $this->packges = $packages;
+        $this->packages = $packages;
     }
 
     public function all(): array
@@ -36,7 +37,7 @@ class PackageQueryService
     /**
      * 新しいバージョンが配信されたかどうか確認する
      */
-    public function checkForUpdate(string $packageId, string $currentVersion, \DateTimeInterface $date): array
+    public function checkForUpdate(string $packageId, string $currentVersion, DateTimeInterface $date): array
     {
         $package = $this->getPackage($packageId);
         $release = $package->latestVersion($date);
@@ -49,7 +50,7 @@ class PackageQueryService
     /**
      * 現在のバージョンが廃止されたかどうか確認する
      */
-    public function checkForExpire(string $packageId, string $currentVersion, \DateTimeInterface $date): bool
+    public function checkForExpire(string $packageId, string $currentVersion, DateTimeInterface $date): bool
     {
         $package = $this->getPackage($packageId);
         $release = $package->currentVersion($currentVersion);
